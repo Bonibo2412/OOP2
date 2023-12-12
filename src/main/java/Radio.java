@@ -26,7 +26,6 @@ public class Radio {
 
         return currentStation;
     }
-
     public int prevStation() {
         if (currentStation != 0) {
             currentStation--;
