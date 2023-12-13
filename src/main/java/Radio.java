@@ -1,6 +1,17 @@
 public class Radio {
+    private final int maxStation;
+    private final int maxVolume = 100;
     private int currentVolume;
     private int currentStation;
+
+    public Radio() {
+        maxStation = 9;
+    }
+
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
+
+    }
 
 
     // Настройки станции
@@ -9,63 +20,77 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
-            return;
+        {
+            if (currentStation < 0) {
+                return;
+            }
         }
-        if (currentStation > 9) {
-            return;
+        {
+            if (currentStation > maxStation) {
+                return;
+            }
         }
         this.currentStation = currentStation;
     }
 
     public int nextStation() {
-        if (currentStation != 9) {
-            currentStation++;
+        {
+            if (currentStation != maxStation) {
+                currentStation++;
 
-        } else currentStation = 0;
-
+            } else currentStation = 0;
+        }
         return currentStation;
     }
+
     public int prevStation() {
-        if (currentStation != 0) {
-            currentStation--;
+        {
+            if (currentStation != 0) {
+                currentStation--;
 
-        } else currentStation = 9;
-
+            } else currentStation = maxStation;
+        }
         return currentStation;
     }
 
 
     // Настройки громкости.
+
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
-            return;
+        {
+            if (currentVolume < 0) {
+                return;
+            }
         }
-        if (currentVolume > 100) {
-            return;
+        {
+            if (currentVolume > maxVolume) {
+                return;
+
+            }
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume != 100) {
-            currentVolume++;
+        {
+            if (currentVolume != maxVolume) {
+                currentVolume++;
+            }
         }
 
     }
 
     public void decreaseVolume() {
-        if (currentVolume != 0) {
-            currentVolume--;
+        {
+            if (currentVolume != 0) {
+                currentVolume--;
+            }
         }
 
 
     }
 }
-
-
-
